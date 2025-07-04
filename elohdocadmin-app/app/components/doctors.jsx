@@ -22,31 +22,31 @@ export default function Doctors() {
     fetchDoctors();
   }, []);
 
-  const approveDoctor = async (userId) => {
-    const res = await fetch("https://localhost:3000/api/verify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ doctorId: userId, isValid: true }),
-    });
+ const approveDoctor = async (userId) => {
+  const res = await fetch("/api/verify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ doctorId: userId, isValid: true }),
+  });
 
-    const result = await res.json();
-    if (result.success) {
-      alert("Doctor approved.");
-      setDoctors((prev) =>
-        prev.map((doc) =>
-          doc.userId === userId ? { ...doc, isVerified: true } : doc
-        )
-      );
-    } else {
-      alert("Failed to approve: " + result.error);
-    }
-  };
+  const result = await res.json();
+  if (result.success) {
+    alert("Doctor approved.");
+    setDoctors((prev) =>
+      prev.map((doc) =>
+        doc.userId === userId ? { ...doc, isVerified: true } : doc
+      )
+    );
+  } else {
+    alert("Failed to approve: " + result.error);
+  }
+};
+
 
   if (loading) return <p className="text-white">Loading...</p>;
   console.log("Doctors:", doctors);
 
   return (
-
     <div className="mt-8 w-full max-w-4xl bg-white p-6 rounded shadow text-black">
       <h2 className="text-2xl font-bold mb-6">Unverified Doctors</h2>
 
@@ -58,8 +58,12 @@ export default function Doctors() {
           className="border p-4 rounded mb-4 flex justify-between items-center "
         >
           <div>
-            <p><strong>Name:</strong> {doc.fullName}</p>
-            <p><strong>Practice Number:</strong> {doc.practiceNumber}</p>
+            <p>
+              <strong>Name:</strong> {doc.fullName}
+            </p>
+            <p>
+              <strong>Practice Number:</strong> {doc.practiceNumber}
+            </p>
             <p>
               <strong>Status:</strong>{" "}
               {doc.isVerified ? "✅ Verified" : "❌ Not Verified"}

@@ -1,13 +1,17 @@
+// ✅ For fetchCollection (client SDK)
 import { db } from "@/db/server";
-import { db as firestore } from "@/db/client";
 import {
   collection,
   getDocs,
-  serverTimestamp,
-  setDoc,
-  updateDoc,
-  doc,
 } from "firebase/firestore";
+
+// ✅ For server-side Firestore operations
+import {
+  doc,
+  updateDoc,
+  setDoc,
+  serverTimestamp,
+} from "firebase-admin/firestore";
 
 /**
  * Fetches all documents from a specified Firestore collection.
@@ -135,11 +139,12 @@ export const updateUserField = async (
   }
 
   try {
-    const docRef = doc(db, collectionName, userId);
+    // 🔥 FIXED: Use Admin SDK style to access doc
+    const docRef = db.collection(collectionName).doc(userId);
 
-    await updateDoc(docRef, {
+    await docRef.update({
       ...updatedFields,
-      updatedAt: serverTimestamp(),
+      updatedAt: new Date(), // or admin.firestore.Timestamp.now() if needed
     });
 
     return {
@@ -154,3 +159,4 @@ export const updateUserField = async (
     };
   }
 };
+

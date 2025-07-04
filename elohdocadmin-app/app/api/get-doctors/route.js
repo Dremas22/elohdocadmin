@@ -1,4 +1,4 @@
-import { fetchserverCollection } from "@/lib/query";
+
 import { NextResponse } from "next/server"; 
 import { db } from "@/db/server"; // Ensure this is the correct import for your server-side database
 
