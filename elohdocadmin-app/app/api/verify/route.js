@@ -6,7 +6,7 @@ export async function POST(req) {
     const body = await req.json();
     const { doctorId, isValid } = body;
 
-    if (!doctorId || typeof isValid !== "boolean") {
+    if (!doctorId || (isValid !== true && isValid !== false && isValid !== null)) {
       return new Response(JSON.stringify({ success: false, message: "Invalid input" }), { status: 400 });
     }
 
