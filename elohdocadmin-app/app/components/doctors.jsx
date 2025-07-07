@@ -23,7 +23,7 @@ export default function Doctors() {
   }, []);
 
   const approveDoctor = async (userId) => {
-    const res = await fetch("/api/verify", {
+    const res = await fetch("/api/verifydoctors", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ doctorId: userId, isValid: true }),
@@ -43,7 +43,7 @@ export default function Doctors() {
   };
 
   const declineDoctor = async (userId) => {
-    const res = await fetch("/api/verify", {
+    const res = await fetch("/api/verifydoctors", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ doctorId: userId, isValid: null }),
