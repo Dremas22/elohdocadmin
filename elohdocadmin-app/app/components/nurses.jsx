@@ -69,6 +69,17 @@ export default function Nurses() {
     <div className="mt-8 w-full max-w-4xl bg-white p-6 rounded shadow text-black">
       <h2 className="text-2xl font-bold mb-6">Unverified Nurses</h2>
 
+      
+      <button
+        onClick={() => {
+          window.history.back(); // go back
+          window.location.reload(); // force refresh
+        }}
+        className="mr-2 text-xl"
+      >
+        ←
+      </button>
+
       {nurses.length === 0 && <p>No nurses found.</p>}
 
       {nurses.map((item) => (

@@ -67,9 +67,19 @@ export default function Doctors() {
 
   return (
     <div className="mt-10 w-full max-w-4xl bg-white p-4 sm:p-6 rounded text-black ">
-  <h2 className="text-xl sm:text-2xl font-bold mb-6 break-words text-center sm:text-left">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6 break-words text-center sm:text-left">
         Unverified Doctors
       </h2>
+
+      <button
+        onClick={() => {
+          window.history.back(); // go back
+          window.location.reload(); // force refresh
+        }}
+        className="mr-2 text-xl"
+      >
+        ←
+      </button>
 
       {doctors.length === 0 && <p>No doctors found.</p>}
 
