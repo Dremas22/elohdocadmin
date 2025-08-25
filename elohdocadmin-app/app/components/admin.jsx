@@ -10,7 +10,7 @@ const Admin = () => {
   return (
     <div className="flex flex-col items-center justify-center px-4 mt-10 w-full">
       <h1 className="text-black text-2xl sm:text-4xl font-bold mt-40  text-center">
-        Eloh Admin
+        Elohdoc Admin
       </h1>
 
       <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full max-w-md mt-10">
