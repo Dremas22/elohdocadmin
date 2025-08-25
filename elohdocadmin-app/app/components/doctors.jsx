@@ -66,7 +66,7 @@ export default function Doctors() {
   console.log("Doctors:", doctors);
 
   return (
-    <div className="mt-10 w-full max-w-4xl bg-white p-4 sm:p-6 rounded ">
+    <div className="mt-10 w-full max-w-4xl bg-white p-4 sm:p-6 rounded text-black ">
   <h2 className="text-xl sm:text-2xl font-bold mb-6 break-words text-center sm:text-left">
         Unverified Doctors
       </h2>
