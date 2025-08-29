@@ -78,7 +78,7 @@ export default function Doctors() {
         }}
         className="mr-2 text-xl"
       >
-        ←
+        Back
       </button>
 
       {doctors.length === 0 && <p>No doctors found.</p>}

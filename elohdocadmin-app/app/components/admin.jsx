@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Doctors from "./doctors";
 import Nurses from "./nurses";
+import Drivers from "./drivers";
 
 const Admin = () => {
   const [activeView, setActiveView] = useState(null);
@@ -28,11 +29,19 @@ const Admin = () => {
         >
           Nurses
         </button>
+          <button
+          className="w-full py-3 sm:py-4 text-white sm:text-lg font-bold bg-[#10002b] hover:bg-[#5a189a]
+          transition duration-300 ease-in-out rounded-xl cursor-pointer"
+          onClick={() => setActiveView("drivers")}
+        >
+          Drivers
+        </button>
       </div>
 
       <div className="w-full max-w-4xl mt-10 sm:mt-20">
         {activeView === "doctors" && <Doctors />}
         {activeView === "nurses" && <Nurses />}
+        {activeView === "drivers" && <Drivers />}
       </div>
     </div>
   );
